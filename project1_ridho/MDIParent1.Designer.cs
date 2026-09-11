@@ -1,5 +1,5 @@
 ﻿
-namespace project1_zavier
+namespace project1_ridho
 {
     partial class MDIParent1
     {

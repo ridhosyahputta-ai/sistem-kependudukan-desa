@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace project1_zavier
+namespace project1_ridho
 {
     public partial class MDIParent1 : Form
     {

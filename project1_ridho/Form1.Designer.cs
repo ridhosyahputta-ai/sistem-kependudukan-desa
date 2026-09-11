@@ -108,7 +108,7 @@ namespace project1_ridho
             // 
             // picLogo
             // 
-            this.picLogo.Image = global::project1_zavier.Properties.Resources.logo_jabar;
+            this.picLogo.Image = global::project1_ridho.Properties.Resources.logo_jabar;
             this.picLogo.Location = new System.Drawing.Point(90, 13);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(80, 80);

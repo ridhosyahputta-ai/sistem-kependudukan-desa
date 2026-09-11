@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{30E9BC3F-F791-43A2-A319-C233B4CD2222}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>project1_zavier</RootNamespace>
-    <AssemblyName>project1_zavier</AssemblyName>
+    <RootNamespace>project1_ridho</RootNamespace>
+    <AssemblyName>project1_ridho</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
