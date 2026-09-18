@@ -57,6 +57,12 @@ namespace project1_ridho
             string idSurat = dgvApproval.SelectedRows[0].Cells["id_surat"].Value.ToString();
             string catatan = txtCatatan.Text.Trim();
 
+            if (statusBaru == "Ditolak" && string.IsNullOrWhiteSpace(catatan))
+            {
+                MessageBox.Show("Alasan penolakan wajib diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 using (MySqlConnection conn = Koneksi.GetKoneksi())
