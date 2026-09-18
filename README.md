@@ -56,3 +56,64 @@ Data login untuk testing:
 | Admin | admin | admin123 |
 | Petugas | petugas | 12345 |
 | Lurah | lurah | lurah123 |
+
+---
+
+# Village Population Administration System
+
+Desktop application for managing population data and letter/certificate requests at the village level. Built as a Desktop Programming coursework project.
+
+## Identity
+
+- **Name**: Ridho Syach Putra
+- **School**: SMK TI Pembangunan Cimahi
+- **Major**: Software Engineering (RPL)
+
+## About the Application
+
+This system was built to help population administration processes that are usually still manual, such as resident data collection and letter/certificate requests (domicile, business, ID card referral, etc.). There are 3 access levels (Admin, Staff, Village Head) each with different access rights according to their respective responsibilities.
+
+## Features
+
+- Login with role-based system (Admin, Staff, Village Head)
+- CRUD for resident data (add, edit, delete, view)
+- Letter requests submitted by residents/staff, with auto-generated letter numbers
+- Letter request approval by the Village Head (approve/reject with notes)
+- Summary dashboard (total residents, total letters per status)
+- Export data to Excel (CSV)
+
+## Technologies Used
+
+- C# WinForms (.NET Framework)
+- MySQL as the database
+- MySQL Connector/NET
+
+## How to Run
+
+1. Import the `db_kependudukan.sql` file into MySQL (can be done via phpMyAdmin)
+2. Open `project1_ridho.sln` with Visual Studio
+3. Adjust the connection string in `Koneksi.cs` if needed
+4. Build and run (F5)
+
+## Project Structure
+
+```
+project1_ridho/
+├── Form1.cs                  # Login page
+├── FormMain.cs                # Main dashboard
+├── FormPenduduk.cs            # Resident data CRUD
+├── FormTransaksiSurat.cs      # Letter requests
+├── FormApproval.cs            # Letter approval by the Village Head
+├── FormRole.cs                # Role master data
+├── FormUser.cs                # User master data
+└── Koneksi.cs                 # Database connection
+```
+
+## Notes
+
+Login credentials for testing:
+| Role | Username | Password |
+|---|---|---|
+| Admin | admin | admin123 |
+| Staff | petugas | 12345 |
+| Village Head | lurah | lurah123 |
