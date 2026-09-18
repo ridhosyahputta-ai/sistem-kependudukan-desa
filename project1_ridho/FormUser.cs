@@ -111,13 +111,13 @@ namespace project1_ridho
             try
             {
                 conn.Open();
-                string query = "INSERT INTO users (nama_lengkap, username, password, level) VALUES ('" +
-                                txtNama.Text.Trim() + "', '" +
-                                txtUsername.Text.Trim() + "', '" +
-                                txtPassword.Text.Trim() + "', '" +
-                                cmbRole.SelectedItem.ToString() + "')";
+                string query = "INSERT INTO users (nama_lengkap, username, password, level) VALUES (@nama, @username, @password, @level)";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nama", txtNama.Text.Trim());
+                cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+                cmd.Parameters.AddWithValue("@level", cmbRole.SelectedItem.ToString());
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data user berhasil disimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,13 +171,14 @@ namespace project1_ridho
             try
             {
                 conn.Open();
-                string query = "UPDATE users SET nama_lengkap='" + txtNama.Text.Trim() +
-                               "', username='" + txtUsername.Text.Trim() +
-                               "', password='" + txtPassword.Text.Trim() +
-                               "', level='" + cmbRole.SelectedItem.ToString() +
-                               "' WHERE id='" + idSelected + "'";
+                string query = "UPDATE users SET nama_lengkap=@nama, username=@username, password=@password, level=@level WHERE id=@id";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nama", txtNama.Text.Trim());
+                cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+                cmd.Parameters.AddWithValue("@level", cmbRole.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@id", idSelected);
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data user berhasil diperbarui!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,8 +212,9 @@ namespace project1_ridho
                 try
                 {
                     conn.Open();
-                    string query = "DELETE FROM users WHERE id='" + idSelected + "'";
+                    string query = "DELETE FROM users WHERE id=@id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", idSelected);
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Data user berhasil dihapus!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -78,8 +78,9 @@ namespace project1_ridho
             try
             {
                 conn.Open();
-                string query = "INSERT INTO roles (nama_role) VALUES ('" + txtNamaRole.Text.Trim() + "')";
+                string query = "INSERT INTO roles (nama_role) VALUES (@nama_role)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nama_role", txtNamaRole.Text.Trim());
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data role berhasil disimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -127,8 +128,10 @@ namespace project1_ridho
             try
             {
                 conn.Open();
-                string query = "UPDATE roles SET nama_role='" + txtNamaRole.Text.Trim() + "' WHERE id='" + idSelected + "'";
+                string query = "UPDATE roles SET nama_role=@nama_role WHERE id=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nama_role", txtNamaRole.Text.Trim());
+                cmd.Parameters.AddWithValue("@id", idSelected);
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data role berhasil diperbarui!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -162,8 +165,9 @@ namespace project1_ridho
                 try
                 {
                     conn.Open();
-                    string query = "DELETE FROM roles WHERE id='" + idSelected + "'";
+                    string query = "DELETE FROM roles WHERE id=@id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", idSelected);
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Data role berhasil dihapus!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);

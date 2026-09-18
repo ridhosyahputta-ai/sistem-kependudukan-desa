@@ -143,7 +143,7 @@ namespace project1_ridho
                         cmd.Parameters.AddWithValue("@nama_warga", txtNamaWarga.Text.Trim());
                         cmd.Parameters.AddWithValue("@jenis_surat", cmbJenisSurat.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@tanggal_pengajuan", dtpTanggalPengajuan.Value.ToString("yyyy-MM-dd"));
-                        cmd.Parameters.AddWithValue("@status", "pending");
+                        cmd.Parameters.AddWithValue("@status", "Pending");
 
                         cmd.ExecuteNonQuery();
 
