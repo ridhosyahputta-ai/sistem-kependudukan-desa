@@ -45,6 +45,7 @@ namespace project1_ridho
             this.btnUbah = new System.Windows.Forms.Button();
             this.btnHapus = new System.Windows.Forms.Button();
             this.btnKeluar = new System.Windows.Forms.Button();
+            this.btnLaporan = new System.Windows.Forms.Button();
             this.dgvTransaksiSurat = new System.Windows.Forms.DataGridView();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaksiSurat)).BeginInit();
@@ -54,6 +55,7 @@ namespace project1_ridho
             //
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
             this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Controls.Add(this.btnLaporan);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
@@ -70,6 +72,19 @@ namespace project1_ridho
             this.lblTitle.Size = new System.Drawing.Size(233, 24);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "PENGAJUAN SURAT";
+            // btnLaporan
+            this.btnLaporan.BackColor = System.Drawing.Color.FromArgb(48, 105, 170);
+            this.btnLaporan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaporan.FlatAppearance.BorderSize = 0;
+            this.btnLaporan.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnLaporan.ForeColor = System.Drawing.Color.White;
+            this.btnLaporan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLaporan.Location = new System.Drawing.Point(545, 10);
+            this.btnLaporan.Name = "btnLaporan";
+            this.btnLaporan.Size = new System.Drawing.Size(185, 35);
+            this.btnLaporan.TabIndex = 17;
+            this.btnLaporan.Text = "Laporan Pengajuan Surat";
+            this.btnLaporan.UseVisualStyleBackColor = false;
             //
             // lblNoSurat
             //
@@ -307,5 +322,6 @@ namespace project1_ridho
         private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Button btnKeluar;
         private System.Windows.Forms.DataGridView dgvTransaksiSurat;
+        private System.Windows.Forms.Button btnLaporan;
     }
 }

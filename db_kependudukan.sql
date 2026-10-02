@@ -56,13 +56,8 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Akun pengguna dipersiapkan secara lokal. Credential tidak disertakan dalam repository.
 --
-
-INSERT INTO `users` (`id`, `nama_lengkap`, `username`, `password`, `level`) VALUES
-(1, 'Administrator', 'admin', 'admin123', 'Admin'),
-(2, 'Petugas Surat', 'petugas', '12345', 'Petugas'),
-(3, 'Lurah Kelurahan', 'lurah', 'lurah123', 'Lurah');
 
 --
 -- Indexes for dumped tables

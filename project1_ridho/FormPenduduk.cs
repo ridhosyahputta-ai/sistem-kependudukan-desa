@@ -39,6 +39,7 @@ namespace project1_ridho
         private void FormPenduduk_Load(object sender, EventArgs e)
         {
             TampilData();
+            ClearFormPenduduk();
         }
 
         private void btnSimpan_Click(object sender, EventArgs e)
@@ -76,12 +77,9 @@ namespace project1_ridho
                         MessageBox.Show("Data Penduduk Berhasil Disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Reset Inputan
-                        txtNIK.Clear();
-                        txtNama.Clear();
-                        txtAlamat.Clear();
-
                         // Refresh tabel data penduduk setelah simpan berhasil
                         TampilData();
+                        ClearFormPenduduk();
                     }
                 }
             }
@@ -99,16 +97,33 @@ namespace project1_ridho
         // Mengisi field otomatis saat baris di dgvPenduduk diklik, lalu masuk mode edit (NIK dikunci)
         private void dgvPenduduk_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0 || e.RowIndex >= dgvPenduduk.Rows.Count)
+                return;
+
+            DataGridViewRow selectedRow = dgvPenduduk.Rows[e.RowIndex];
+            if (selectedRow.IsNewRow || !dgvPenduduk.Columns.Contains("NIK") ||
+                !dgvPenduduk.Columns.Contains("Nama") || !dgvPenduduk.Columns.Contains("Alamat") ||
+                !dgvPenduduk.Columns.Contains("Jenis Kelamin") || !dgvPenduduk.Columns.Contains("Agama") ||
+                !dgvPenduduk.Columns.Contains("Tanggal Lahir") ||
+                string.IsNullOrWhiteSpace(Convert.ToString(selectedRow.Cells["NIK"].Value)))
+            {
+                ClearFormPenduduk();
+                return;
+            }
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvPenduduk.Rows[e.RowIndex];
                 nikSelected = row.Cells["NIK"].Value.ToString();
 
                 txtNIK.Text = nikSelected;
-                txtNama.Text = row.Cells["Nama"].Value.ToString();
-                txtAlamat.Text = row.Cells["Alamat"].Value.ToString();
-                cmbJenisKelamin.SelectedItem = row.Cells["Jenis Kelamin"].Value.ToString();
-                cmbAgama.SelectedItem = row.Cells["Agama"].Value.ToString();
+                txtNama.Text = Convert.ToString(row.Cells["Nama"].Value);
+                txtAlamat.Text = Convert.ToString(row.Cells["Alamat"].Value);
+                cmbJenisKelamin.SelectedIndex = -1;
+                cmbAgama.SelectedIndex = -1;
+                cmbJenisKelamin.SelectedItem = Convert.ToString(row.Cells["Jenis Kelamin"].Value);
+                cmbAgama.SelectedItem = Convert.ToString(row.Cells["Agama"].Value);
+                dtpTanggalLahir.Value = DateTime.Today;
 
                 object tglValue = row.Cells["Tanggal Lahir"].Value;
                 DateTime tgl;
@@ -132,6 +147,9 @@ namespace project1_ridho
             cmbAgama.SelectedIndex = -1;
             txtNIK.ReadOnly = false;
             nikSelected = "";
+            dtpTanggalLahir.Value = DateTime.Today;
+            dgvPenduduk.ClearSelection();
+            dgvPenduduk.CurrentCell = null;
         }
 
         // Tombol Ubah (UPDATE data penduduk berdasarkan NIK yang dipilih)

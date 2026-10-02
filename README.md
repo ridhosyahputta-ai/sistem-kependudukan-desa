@@ -50,12 +50,7 @@ project1_ridho/
 
 ## Catatan
 
-Data login untuk testing:
-| Role | Username | Password |
-|---|---|---|
-| Admin | admin | admin123 |
-| Petugas | petugas | 12345 |
-| Lurah | lurah | lurah123 |
+Gunakan akun yang tersedia pada database lokal. Username dan password tidak disertakan dalam repository.
 
 ---
 
@@ -111,9 +106,17 @@ project1_ridho/
 
 ## Notes
 
-Login credentials for testing:
-| Role | Username | Password |
-|---|---|---|
-| Admin | admin | admin123 |
-| Staff | petugas | 12345 |
-| Village Head | lurah | lurah123 |
+Use accounts provisioned in the local database. Usernames and passwords are not included in the repository.
+
+## Crystal Reports
+
+- Buka **Transaksi Surat**, lalu klik **Laporan Pengajuan Surat** untuk menampilkan report, mencetak, atau mengekspor lewat CrystalReportViewer.
+- Template yang digunakan adalah `project1_ridho/Laporan Daftar Pengajuan Surat - Desa.rpt`; template tetap dalam format Crystal Reports 8.5 dan tidak menyimpan hasil data warga.
+- Laporan menggunakan tabel `penduduk` dan `surat` dengan relasi `penduduk.nik = surat.nik`. Nama warga diambil dari `penduduk.nama`, termasuk saat mengisi field nama pada template lama.
+- Data dimuat melalui `Koneksi.GetKoneksi()` dan diteruskan sebagai dua DataTable. Aplikasi tidak bergantung pada DSN yang tersimpan dalam template.
+- Install SAP Crystal Reports for Visual Studio SP32 dan runtime 32-bit yang sesuai. Project menargetkan .NET Framework 4.7.2, Any CPU dengan Prefer32Bit. Build menggunakan Visual Studio 2019.
+- Reference menggunakan DLL instalasi resmi, bukan package NuGet tambahan. Jika lokasi instalasi berbeda, tentukan properti MSBuild `CrystalReportsAssemblyPath` ke folder DLL Crystal Reports.
+- File `.rpt` disalin otomatis ke folder output saat build. Pada komputer lain, pasang runtime Crystal Reports yang sesuai; folder `bin`, `obj`, dan DLL instalasi tidak di-commit.
+- Database lokal harus sudah memiliki tabel `penduduk` dan `surat`. File SQL bawaan hanya berisi struktur master `roles`/`users` dan seed role; akun pengguna dipersiapkan secara lokal tanpa menyimpan password di repository.
+
+Development assistance: ChatGPT (OpenAI) & Claude.

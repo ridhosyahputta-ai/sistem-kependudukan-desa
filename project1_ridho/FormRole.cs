@@ -14,14 +14,13 @@ namespace project1_ridho
         {
             InitializeComponent();
 
-            // Pendaftaran event tombol langsung lewat kode
+            // Simpan/Ubah/Hapus belum didaftarkan oleh Designer.
             this.btnSimpan.Click += new EventHandler(this.btnSimpan_Click);
             this.btnUbah.Click += new EventHandler(this.btnUbah_Click);
             this.btnHapus.Click += new EventHandler(this.btnHapus_Click);
-            this.btnClear.Click += new EventHandler(this.btnClear_Click);
-            this.btnKeluar.Click += new EventHandler(this.btnKeluar_Click); // <-- Pendaftaran tombol Keluar
+            // Gunakan CellClick saja agar klik isi sel tidak diproses dua kali.
+            this.dgvRole.CellContentClick -= this.dgvRole_CellClick;
             this.dgvRole.CellClick += new DataGridViewCellEventHandler(this.dgvRole_CellClick);
-            this.Load += new EventHandler(this.FormRole_Load);
         }
 
         // 1. FUNGSI UNTUK MENAMPILKAN DATA DARI DATABASE KE DATAGRIDVIEW
@@ -53,6 +52,8 @@ namespace project1_ridho
         {
             txtNamaRole.Text = "";
             idSelected = "";
+            dgvRole.ClearSelection();
+            dgvRole.CurrentCell = null;
             txtNamaRole.Focus();
         }
 
@@ -60,6 +61,7 @@ namespace project1_ridho
         private void FormRole_Load(object sender, EventArgs e)
         {
             TampilData();
+            ClearForm();
         }
 
         // 4. TOMBOL SIMPAN (CREATE + VALIDASI)
@@ -100,12 +102,20 @@ namespace project1_ridho
         // 5. EVENT KLIK TABEL (DATAGRIDVIEW)
         private void dgvRole_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex < 0 || e.RowIndex >= dgvRole.Rows.Count)
+                return;
+
+            DataGridViewRow row = dgvRole.Rows[e.RowIndex];
+            if (row.IsNewRow || !dgvRole.Columns.Contains("ID") ||
+                !dgvRole.Columns.Contains("Nama Role") ||
+                string.IsNullOrWhiteSpace(Convert.ToString(row.Cells["ID"].Value)))
             {
-                DataGridViewRow row = dgvRole.Rows[e.RowIndex];
-                idSelected = row.Cells["ID"].Value.ToString();
-                txtNamaRole.Text = row.Cells["Nama Role"].Value.ToString();
+                ClearForm();
+                return;
             }
+
+            idSelected = Convert.ToString(row.Cells["ID"].Value);
+            txtNamaRole.Text = Convert.ToString(row.Cells["Nama Role"].Value);
         }
 
         // 6. TOMBOL UBAH (UPDATE)

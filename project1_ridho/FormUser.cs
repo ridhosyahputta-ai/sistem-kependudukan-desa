@@ -13,14 +13,8 @@ namespace project1_ridho
         {
             InitializeComponent();
 
-            // Pendaftaran event secara langsung via kode
-            this.btnSimpan.Click += new EventHandler(this.btnSimpan_Click);
-            this.btnUbah.Click += new EventHandler(this.btnUbah_Click);
-            this.btnHapus.Click += new EventHandler(this.btnHapus_Click);
-            this.btnClear.Click += new EventHandler(this.btnClear_Click);
-            this.btnKeluar.Click += new EventHandler(this.btnKeluar_Click); // <-- Pendaftaran tombol Keluar
-            this.dgvUser.CellClick += new DataGridViewCellEventHandler(this.dgvUser_CellClick);
-            this.Load += new EventHandler(this.FormUser_Load);
+            // Event tombol, CellClick, dan Load sudah didaftarkan oleh Designer.
+            this.dgvUser.CellContentClick -= this.dgvUser_CellContentClick;
         }
 
         // 1. FUNGSI MENAMPILKAN DATA USER KE TABEL
@@ -83,6 +77,8 @@ namespace project1_ridho
             txtPassword.Text = "";
             cmbRole.SelectedIndex = -1;
             idSelected = "";
+            dgvUser.ClearSelection();
+            dgvUser.CurrentCell = null;
             txtNama.Focus();
         }
 
@@ -91,6 +87,7 @@ namespace project1_ridho
         {
             TampilData();
             LoadRoleComboBox();
+            ClearForm();
         }
 
         // 5. TOMBOL SIMPAN (CREATE + VALIDASI)
@@ -137,15 +134,25 @@ namespace project1_ridho
         // 6. EVENT KLIK BARIS TABEL (DATAGRIDVIEW)
         private void dgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex < 0 || e.RowIndex >= dgvUser.Rows.Count)
+                return;
+
+            DataGridViewRow row = dgvUser.Rows[e.RowIndex];
+            if (row.IsNewRow || !dgvUser.Columns.Contains("ID") ||
+                !dgvUser.Columns.Contains("Nama Lengkap") || !dgvUser.Columns.Contains("Username") ||
+                !dgvUser.Columns.Contains("Password") || !dgvUser.Columns.Contains("Role") ||
+                string.IsNullOrWhiteSpace(Convert.ToString(row.Cells["ID"].Value)))
             {
-                DataGridViewRow row = dgvUser.Rows[e.RowIndex];
-                idSelected = row.Cells["ID"].Value.ToString();
-                txtNama.Text = row.Cells["Nama Lengkap"].Value.ToString();
-                txtUsername.Text = row.Cells["Username"].Value.ToString();
-                txtPassword.Text = row.Cells["Password"].Value.ToString();
-                cmbRole.SelectedItem = row.Cells["Role"].Value.ToString();
+                ClearForm();
+                return;
             }
+
+            idSelected = Convert.ToString(row.Cells["ID"].Value);
+            txtNama.Text = Convert.ToString(row.Cells["Nama Lengkap"].Value);
+            txtUsername.Text = Convert.ToString(row.Cells["Username"].Value);
+            txtPassword.Text = Convert.ToString(row.Cells["Password"].Value);
+            cmbRole.SelectedIndex = -1;
+            cmbRole.SelectedItem = Convert.ToString(row.Cells["Role"].Value);
         }
 
         // 7. TOMBOL UBAH (UPDATE)

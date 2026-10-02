@@ -31,6 +31,8 @@ namespace project1_ridho
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     dgvApproval.DataSource = dt;
+                    dgvApproval.ClearSelection();
+                    dgvApproval.CurrentCell = null;
                 }
             }
             catch (Exception ex)
@@ -54,7 +56,17 @@ namespace project1_ridho
             }
 
             // Ambil ID Surat dari baris yang dipilih di DataGridView
-            string idSurat = dgvApproval.SelectedRows[0].Cells["id_surat"].Value.ToString();
+            DataGridViewRow row = dgvApproval.SelectedRows[0];
+            if (row.IsNewRow || !dgvApproval.Columns.Contains("id_surat") ||
+                string.IsNullOrWhiteSpace(Convert.ToString(row.Cells["id_surat"].Value)))
+            {
+                dgvApproval.ClearSelection();
+                dgvApproval.CurrentCell = null;
+                MessageBox.Show("Silakan pilih baris surat yang valid!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string idSurat = Convert.ToString(row.Cells["id_surat"].Value);
             string catatan = txtCatatan.Text.Trim();
 
             if (statusBaru == "Ditolak" && string.IsNullOrWhiteSpace(catatan))

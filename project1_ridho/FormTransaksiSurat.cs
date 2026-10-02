@@ -20,6 +20,7 @@ namespace project1_ridho
             this.btnUbah.Click += new EventHandler(btnUbah_Click);
             this.btnHapus.Click += new EventHandler(btnHapus_Click);
             this.btnKeluar.Click += new EventHandler(btnKeluar_Click);
+            this.btnLaporan.Click += new EventHandler(btnLaporan_Click);
             this.dgvTransaksiSurat.CellClick += new DataGridViewCellEventHandler(dgvTransaksiSurat_CellClick);
         }
 
@@ -32,6 +33,8 @@ namespace project1_ridho
 
             TampilkanPreviewNoSurat();
             TampilkanDataSurat();
+            dgvTransaksiSurat.ClearSelection();
+            dgvTransaksiSurat.CurrentCell = null;
         }
 
         // Menampilkan seluruh data pengajuan surat ke dgvTransaksiSurat
@@ -150,16 +153,9 @@ namespace project1_ridho
                         MessageBox.Show("Pengajuan surat berhasil disimpan dengan nomor " + noSurat + "!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Reset form untuk pengajuan berikutnya
-                        txtNIK.Clear();
-                        txtNamaWarga.Clear();
-                        dtpTanggalPengajuan.Value = DateTime.Now;
-                        if (cmbJenisSurat.Items.Count > 0)
-                            cmbJenisSurat.SelectedIndex = 0;
-
-                        txtNoSurat.Text = GenerateNoSurat(conn);
-
                         // Refresh tabel data surat setelah simpan berhasil
                         TampilkanDataSurat();
+                        ClearFormTransaksi();
                     }
                 }
             }
@@ -172,15 +168,30 @@ namespace project1_ridho
         // Mengisi field otomatis saat baris di dgvTransaksiSurat diklik, lalu masuk mode edit
         private void dgvTransaksiSurat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0 || e.RowIndex >= dgvTransaksiSurat.Rows.Count)
+                return;
+
+            DataGridViewRow selectedRow = dgvTransaksiSurat.Rows[e.RowIndex];
+            if (selectedRow.IsNewRow || !dgvTransaksiSurat.Columns.Contains("No. Surat") ||
+                !dgvTransaksiSurat.Columns.Contains("NIK") || !dgvTransaksiSurat.Columns.Contains("Nama Warga") ||
+                !dgvTransaksiSurat.Columns.Contains("Jenis Surat") || !dgvTransaksiSurat.Columns.Contains("Tanggal Pengajuan") ||
+                string.IsNullOrWhiteSpace(Convert.ToString(selectedRow.Cells["No. Surat"].Value)))
+            {
+                ClearFormTransaksi();
+                return;
+            }
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvTransaksiSurat.Rows[e.RowIndex];
                 noSuratSelected = row.Cells["No. Surat"].Value.ToString();
 
                 txtNoSurat.Text = noSuratSelected;
-                txtNIK.Text = row.Cells["NIK"].Value.ToString();
-                txtNamaWarga.Text = row.Cells["Nama Warga"].Value.ToString();
-                cmbJenisSurat.SelectedItem = row.Cells["Jenis Surat"].Value.ToString();
+                txtNIK.Text = Convert.ToString(row.Cells["NIK"].Value);
+                txtNamaWarga.Text = Convert.ToString(row.Cells["Nama Warga"].Value);
+                cmbJenisSurat.SelectedIndex = -1;
+                cmbJenisSurat.SelectedItem = Convert.ToString(row.Cells["Jenis Surat"].Value);
+                dtpTanggalPengajuan.Value = DateTime.Now;
 
                 object tglValue = row.Cells["Tanggal Pengajuan"].Value;
                 DateTime tgl;
@@ -200,6 +211,8 @@ namespace project1_ridho
             if (cmbJenisSurat.Items.Count > 0)
                 cmbJenisSurat.SelectedIndex = 0;
             noSuratSelected = "";
+            dgvTransaksiSurat.ClearSelection();
+            dgvTransaksiSurat.CurrentCell = null;
 
             TampilkanPreviewNoSurat();
         }
@@ -289,6 +302,14 @@ namespace project1_ridho
         private void btnKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLaporan_Click(object sender, EventArgs e)
+        {
+            using (FormLaporanSurat formLaporan = new FormLaporanSurat())
+            {
+                formLaporan.ShowDialog(this);
+            }
         }
     }
 }

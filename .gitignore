@@ -4,3 +4,11 @@ packages/
 .vs/
 *.suo
 .claude/settings.local.json
+*.user
+.env
+.env.*
+*.local.config
+.codex/
+.aws/
+DataPenduduk_*.csv
+DaftarSurat_*.csv
