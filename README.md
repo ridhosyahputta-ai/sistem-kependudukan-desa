@@ -1,122 +1,245 @@
 # Sistem Kependudukan Desa
 
-Aplikasi desktop untuk mengelola data penduduk dan pengajuan surat di tingkat desa/kelurahan. Dibuat sebagai tugas mata pelajaran Pemrograman Desktop.
+**Aplikasi Administrasi Kependudukan Berbasis Desktop**
 
-## Identitas
+Aplikasi desktop untuk membantu pengelolaan data penduduk, administrasi pengguna, pengajuan surat, persetujuan surat, dan laporan kependudukan di lingkungan desa atau kelurahan.
 
-- **Nama**: Ridho Syach Putra
-- **Sekolah**: SMK TI Pembangunan Cimahi
-- **Jurusan**: Rekayasa Perangkat Lunak (RPL)
+Project ini dikembangkan sebagai bagian dari tugas mata pelajaran **Pemrograman Desktop**.
 
-## Tentang Aplikasi
+## Identitas Pengembang
 
-Sistem ini dibuat untuk membantu proses administrasi kependudukan yang biasanya masih manual, seperti pendataan warga dan pengajuan surat keterangan (domisili, usaha, pengantar KTP, dll). Ada 3 level akses (Admin, Petugas, Lurah) dengan hak akses yang berbeda-beda sesuai tanggung jawabnya masing-masing.
+- **Nama:** Ridho Syach Putra
+- **Sekolah:** SMK TI Pembangunan Cimahi
+- **Jurusan:** Rekayasa Perangkat Lunak (RPL)
+- **Bahasa Pemrograman:** C#
+- **Platform:** Windows Desktop
 
-## Fitur
+## Teknologi
 
-- Login dengan sistem role (Admin, Petugas, Lurah)
-- CRUD data penduduk (tambah, ubah, hapus, lihat)
-- Pengajuan surat oleh warga/petugas, dengan nomor surat yang digenerate otomatis
-- Approval pengajuan surat oleh Lurah (setuju/tolak beserta catatan)
-- Dashboard ringkasan (total penduduk, total surat per status)
-- Export data ke Excel (CSV)
+| Teknologi | Kegunaan |
+|---|---|
+| C# WinForms | Pengembangan antarmuka desktop |
+| .NET Framework 4.7.2 | Framework aplikasi |
+| Visual Studio 2019 | IDE pengembangan |
+| MySQL | Sistem manajemen database |
+| MySQL Connector/NET | Koneksi C# ke MySQL |
+| SAP Crystal Reports | Pembuatan dan pencetakan laporan |
+| Git & GitHub | Version control |
 
-## Teknologi yang Dipakai
+## Fitur Aplikasi
 
-- C# WinForms (.NET Framework)
-- MySQL sebagai database
+### Autentikasi dan Hak Akses
+
+Aplikasi memiliki tiga role utama:
+
+- **Admin:** Pengelolaan akun, master role, data penduduk, dan pengajuan surat.
+- **Petugas:** Pengelolaan data penduduk dan pengajuan surat.
+- **Lurah:** Persetujuan atau penolakan pengajuan surat.
+
+Pemeriksaan hak akses Admin untuk pengelolaan akun dan role telah diperkuat pada tahap pengembangan keamanan terbaru.
+
+### Pengelolaan Data Penduduk
+
+- Menambahkan data penduduk.
+- Menampilkan daftar penduduk.
+- Mengubah data penduduk.
+- Menghapus data penduduk.
+- Mencari dan memilih data.
+- Mengekspor data dalam format CSV.
+
+### Pengajuan Surat
+
+Mendukung delapan jenis surat:
+
+1. Surat Keterangan Domisili
+2. Surat Keterangan Usaha
+3. Surat Keterangan Tidak Mampu
+4. Surat Pengantar KTP
+5. Surat Keterangan Kelahiran
+6. Surat Keterangan Kematian
+7. Surat Pengantar Nikah
+8. Surat Keterangan Pindah
+
+Tersedia fitur pembuatan nomor surat otomatis, pengelolaan pengajuan, dan pemantauan status.
+
+### Approval Surat
+
+Lurah dapat meninjau pengajuan surat dengan status Pending, menyetujui atau menolak pengajuan, dan memberikan catatan atau alasan penolakan.
+
+### Dashboard
+
+Dashboard menampilkan informasi ringkasan, termasuk jumlah penduduk, status pengajuan surat, dan pengajuan terbaru.
+
+### Crystal Reports
+
+Aplikasi telah terintegrasi dengan CrystalReportViewer untuk menampilkan, mencetak, dan mengekspor laporan pengajuan surat.
+
+Laporan menggunakan dua tabel MySQL:
+
+- `penduduk`
+- `surat`
+
+Keduanya dihubungkan menggunakan kolom `nik`, sedangkan nama warga pada laporan diperoleh dari `penduduk.nama`.
+
+Template laporan:
+
+`project1_ridho/Laporan Daftar Pengajuan Surat - Desa.rpt`
+
+Integrasi menggunakan SAP Crystal Reports for Visual Studio SP32 dengan runtime 32-bit yang sesuai.
+
+## Pengembangan Keamanan
+
+Pengembangan keamanan dilakukan secara bertahap.
+
+**Tahap 1 — Fondasi Keamanan**
+
+- Implementasi PasswordHasher berbasis PBKDF2-HMAC-SHA256.
+- Salt acak dan format hash berversi.
+- Pemeriksaan role yang lebih ketat.
+- Pembatasan pengelolaan akun untuk Admin.
+- Penyembunyian password dari DataGridView.
+
+**Tahap 2 — Integrasi Autentikasi**
+
+- Dukungan autentikasi password hash.
+- Jalur kompatibilitas untuk akun lama.
+- Migrasi password bertahap setelah login berhasil.
+- Proses hashing di worker thread untuk menjaga responsivitas UI.
+- Penanganan migrasi bersamaan.
+
+**Tahap 2B — Pengujian MySQL**
+
+Pengujian dilakukan menggunakan database terpisah bernama `db_kependudukan_security_test_stage2`, dengan akun sintetis tanpa menggunakan data penduduk asli.
+
+| Pengujian | Hasil |
+|---|---|
+| Pengujian offline | 31 lulus, 0 gagal |
+| Pengujian MySQL | 8 lulus, 0 gagal |
+| Build Debug | Berhasil |
+| Build Release | Berhasil |
+
+**Status keamanan:** Implementasi dan pengujian database terpisah telah selesai. Migrasi autentikasi pada database utama belum diaktifkan. Pembatasan percobaan login, perlindungan Admin terakhir, dan penguatan otorisasi masih menjadi pekerjaan lanjutan.
+
+## Persyaratan Sistem
+
+- Windows
+- Visual Studio 2019
+- .NET Framework 4.7.2
+- MySQL Server
 - MySQL Connector/NET
+- SAP Crystal Reports for Visual Studio SP32 dan runtime 32-bit yang kompatibel
 
 ## Cara Menjalankan
 
-1. Import file `db_kependudukan.sql` ke MySQL (bisa lewat phpMyAdmin)
-2. Buka `project1_ridho.sln` dengan Visual Studio
-3. Sesuaikan connection string di `Koneksi.cs` kalau perlu
-4. Build dan jalankan (F5)
+1. Siapkan MySQL Server dan database `db_kependudukan`.
+2. Pastikan tabel yang diperlukan tersedia: `roles`, `users`, `penduduk`, dan `surat`.
+3. Buka `project1_ridho.sln` menggunakan Visual Studio 2019.
+4. Periksa konfigurasi koneksi pada `Koneksi.cs`.
+5. Pastikan dependensi MySQL dan Crystal Reports terpasang.
+6. Build project dan jalankan aplikasi.
+
+**Catatan database:** File `db_kependudukan.sql` yang tersedia sebelumnya belum mencakup seluruh tabel aplikasi. Oleh karena itu, impor file tersebut saja belum cukup untuk menjalankan semua fitur.
+
+Skrip migrasi keamanan berada pada folder `database/migrations/` dan tidak boleh dijalankan langsung pada database utama tanpa persiapan, cadangan data, dan pengujian.
 
 ## Struktur Project
 
-```
+```text
 project1_ridho/
-├── Form1.cs                  # Halaman login
-├── FormMain.cs                # Dashboard utama
-├── FormPenduduk.cs            # CRUD data penduduk
-├── FormTransaksiSurat.cs      # Pengajuan surat
-├── FormApproval.cs            # Approval surat oleh Lurah
-├── FormRole.cs                # Master data role
-├── FormUser.cs                # Master data user
-└── Koneksi.cs                 # Koneksi ke database
+├── Form1.cs
+├── FormMain.cs
+├── FormPenduduk.cs
+├── FormTransaksiSurat.cs
+├── FormApproval.cs
+├── FormRole.cs
+├── FormUser.cs
+├── FormLaporanSurat.cs
+├── Koneksi.cs
+├── PasswordHasher.cs
+├── AuthenticationService.cs
+├── AuthorizationService.cs
+├── UserSession.cs
+└── project1_ridho.csproj
+
+database/
+├── migrations/
+└── testing/
+
+tests/
+└── Security.Tests/
+
+docs/
+├── security-stage1.md
+├── security-stage2.md
+└── security-stage2b.md
 ```
 
-## Catatan
+## Status Project
 
-Gunakan akun yang tersedia pada database lokal. Username dan password tidak disertakan dalam repository.
+Project telah memiliki fitur utama administrasi kependudukan, pengajuan surat, approval, dashboard, dan integrasi laporan.
+
+Pengembangan keamanan Tahap 1–2B telah diuji, tetapi masih terdapat pekerjaan lanjutan sebelum seluruh mekanisme keamanan digunakan pada database utama.
+
+Pengujian langsung seluruh fitur CRUD melalui UI dan pencetakan Crystal Reports masih diperlukan.
+
+## Kredit
+
+**Pengembang:** Ridho Syach Putra
+
+**Bantuan pengembangan:** ChatGPT (OpenAI), OpenAI Codex, dan Claude (Anthropic).
+
+AI digunakan sebagai asisten untuk analisis kode, debugging, pengembangan fitur, dokumentasi, dan pengujian. Pengembangan dan pengelolaan repository berada di bawah tanggung jawab pemilik project.
 
 ---
 
 # Village Population Administration System
 
-Desktop application for managing population data and letter/certificate requests at the village level. Built as a Desktop Programming coursework project.
+A Windows desktop application for managing village population records, user accounts, certificate requests, approvals, and administrative reports.
 
-## Identity
+Developed as a **Desktop Programming school project**.
 
-- **Name**: Ridho Syach Putra
-- **School**: SMK TI Pembangunan Cimahi
-- **Major**: Software Engineering (RPL)
+## Developer
 
-## About the Application
+- **Name:** Ridho Syach Putra
+- **School:** SMK TI Pembangunan Cimahi
+- **Major:** Software Engineering (RPL)
 
-This system was built to help population administration processes that are usually still manual, such as resident data collection and letter/certificate requests (domicile, business, ID card referral, etc.). There are 3 access levels (Admin, Staff, Village Head) each with different access rights according to their respective responsibilities.
+## Technology Stack
 
-## Features
+C# WinForms, .NET Framework 4.7.2, Visual Studio 2019, MySQL, MySQL Connector/NET, and SAP Crystal Reports.
 
-- Login with role-based system (Admin, Staff, Village Head)
-- CRUD for resident data (add, edit, delete, view)
-- Letter requests submitted by residents/staff, with auto-generated letter numbers
-- Letter request approval by the Village Head (approve/reject with notes)
-- Summary dashboard (total residents, total letters per status)
-- Export data to Excel (CSV)
+## Main Features
 
-## Technologies Used
+- Role-based login for Admin, Staff, and Village Head.
+- Resident data management (CRUD).
+- Eight types of administrative letter requests.
+- Automatic letter numbering.
+- Letter approval and rejection with notes.
+- Dashboard statistics and recent submissions.
+- CSV export.
+- Crystal Reports integration using the `penduduk` and `surat` tables.
 
-- C# WinForms (.NET Framework)
-- MySQL as the database
-- MySQL Connector/NET
+## Security Development
 
-## How to Run
+Security improvements include PBKDF2-HMAC-SHA256 password hashing, versioned hash formats, stricter role authorization, legacy account migration support, and asynchronous hashing.
 
-1. Import the `db_kependudukan.sql` file into MySQL (can be done via phpMyAdmin)
-2. Open `project1_ridho.sln` with Visual Studio
-3. Adjust the connection string in `Koneksi.cs` if needed
-4. Build and run (F5)
+Security Stages 1–2B have passed 31 offline tests and 8 MySQL integration tests using a separate synthetic test database.
 
-## Project Structure
+**Important:** Production password migration has not been activated. Additional authorization hardening and end-to-end UI testing are still required.
 
-```
-project1_ridho/
-├── Form1.cs                  # Login page
-├── FormMain.cs                # Main dashboard
-├── FormPenduduk.cs            # Resident data CRUD
-├── FormTransaksiSurat.cs      # Letter requests
-├── FormApproval.cs            # Letter approval by the Village Head
-├── FormRole.cs                # Role master data
-├── FormUser.cs                # User master data
-└── Koneksi.cs                 # Database connection
-```
+## Setup
 
-## Notes
+1. Install Visual Studio 2019 and the required .NET Framework.
+2. Prepare a MySQL database named `db_kependudukan`.
+3. Ensure the `roles`, `users`, `penduduk`, and `surat` tables exist.
+4. Configure the database connection in `Koneksi.cs`.
+5. Install the required Crystal Reports components.
+6. Open the solution, build, and run the application.
 
-Use accounts provisioned in the local database. Usernames and passwords are not included in the repository.
+The bundled SQL file may not contain the complete application schema. Do not execute security migration scripts against the main database without appropriate backups and testing.
 
-## Crystal Reports
+## Development Credits
 
-- Buka **Transaksi Surat**, lalu klik **Laporan Pengajuan Surat** untuk menampilkan report, mencetak, atau mengekspor lewat CrystalReportViewer.
-- Template yang digunakan adalah `project1_ridho/Laporan Daftar Pengajuan Surat - Desa.rpt`; template tetap dalam format Crystal Reports 8.5 dan tidak menyimpan hasil data warga.
-- Laporan menggunakan tabel `penduduk` dan `surat` dengan relasi `penduduk.nik = surat.nik`. Nama warga diambil dari `penduduk.nama`, termasuk saat mengisi field nama pada template lama.
-- Data dimuat melalui `Koneksi.GetKoneksi()` dan diteruskan sebagai dua DataTable. Aplikasi tidak bergantung pada DSN yang tersimpan dalam template.
-- Install SAP Crystal Reports for Visual Studio SP32 dan runtime 32-bit yang sesuai. Project menargetkan .NET Framework 4.7.2, Any CPU dengan Prefer32Bit. Build menggunakan Visual Studio 2019.
-- Reference menggunakan DLL instalasi resmi, bukan package NuGet tambahan. Jika lokasi instalasi berbeda, tentukan properti MSBuild `CrystalReportsAssemblyPath` ke folder DLL Crystal Reports.
-- File `.rpt` disalin otomatis ke folder output saat build. Pada komputer lain, pasang runtime Crystal Reports yang sesuai; folder `bin`, `obj`, dan DLL instalasi tidak di-commit.
-- Database lokal harus sudah memiliki tabel `penduduk` dan `surat`. File SQL bawaan hanya berisi struktur master `roles`/`users` dan seed role; akun pengguna dipersiapkan secara lokal tanpa menyimpan password di repository.
+Developed by **Ridho Syach Putra**, with development assistance from **ChatGPT (OpenAI), OpenAI Codex, and Claude (Anthropic)**.
 
-Development assistance: ChatGPT (OpenAI) & Claude.
+AI tools assisted with code analysis, debugging, implementation, testing, and documentation.
