@@ -1,357 +1,481 @@
-
 namespace project1_ridho
 {
     partial class FormPenduduk
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.txtNIK = new System.Windows.Forms.TextBox();
-            this.txtNama = new System.Windows.Forms.TextBox();
-            this.cmbJenisKelamin = new System.Windows.Forms.ComboBox();
-            this.txtAlamat = new System.Windows.Forms.TextBox();
-            this.cmbAgama = new System.Windows.Forms.ComboBox();
-            this.dtpTanggalLahir = new System.Windows.Forms.DateTimePicker();
-            this.btnSimpan = new System.Windows.Forms.Button();
-            this.btnUbah = new System.Windows.Forms.Button();
-            this.btnHapus = new System.Windows.Forms.Button();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.pnlEditor = new System.Windows.Forms.Panel();
+            this.inputLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlNik = new System.Windows.Forms.Panel();
+            this.pnlNama = new System.Windows.Forms.Panel();
+            this.pnlAlamat = new System.Windows.Forms.Panel();
+            this.pnlJenisKelamin = new System.Windows.Forms.Panel();
+            this.pnlAgama = new System.Windows.Forms.Panel();
+            this.pnlTanggalLahir = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnKeluar = new System.Windows.Forms.Button();
+            this.txtNIK = new System.Windows.Forms.TextBox();
+            this.txtNama = new System.Windows.Forms.TextBox();
+            this.txtAlamat = new System.Windows.Forms.TextBox();
+            this.cmbJenisKelamin = new System.Windows.Forms.ComboBox();
+            this.cmbAgama = new System.Windows.Forms.ComboBox();
+            this.dtpTanggalLahir = new System.Windows.Forms.DateTimePicker();
+            this.btnSimpan = new System.Windows.Forms.Button();
+            this.btnUbah = new System.Windows.Forms.Button();
+            this.btnHapus = new System.Windows.Forms.Button();
             this.btnExportExcel = new System.Windows.Forms.Button();
+            this.btnKeluar = new System.Windows.Forms.Button();
+            this.lblDaftar = new System.Windows.Forms.Label();
             this.dgvPenduduk = new System.Windows.Forms.DataGridView();
+            this.colNik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAlamat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJenisKelamin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAgama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTanggalLahir = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
+            this.pnlContent.SuspendLayout();
+            this.pnlEditor.SuspendLayout();
+            this.inputLayout.SuspendLayout();
+            this.pnlNik.SuspendLayout();
+            this.pnlNama.SuspendLayout();
+            this.pnlAlamat.SuspendLayout();
+            this.pnlJenisKelamin.SuspendLayout();
+            this.pnlAgama.SuspendLayout();
+            this.pnlTanggalLahir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPenduduk)).BeginInit();
             this.SuspendLayout();
-            //
-            // pnlHeader
-            //
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.pnlHeader.Controls.Add(this.lblTitle);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(800, 55);
-            this.pnlHeader.TabIndex = 14;
-            //
-            // lblTitle
-            //
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(217, 24);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "DATA PENDUDUK";
-            //
-            // txtNIK
-            //
-            this.txtNIK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNIK.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIK.Location = new System.Drawing.Point(150, 72);
-            this.txtNIK.Name = "txtNIK";
-            this.txtNIK.Size = new System.Drawing.Size(250, 25);
-            this.txtNIK.TabIndex = 0;
-            //
-            // txtNama
-            //
-            this.txtNama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNama.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(150, 107);
-            this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(250, 25);
-            this.txtNama.TabIndex = 1;
-            //
-            // cmbJenisKelamin
-            //
-            this.cmbJenisKelamin.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbJenisKelamin.FormattingEnabled = true;
-            this.cmbJenisKelamin.Items.AddRange(new object[] {
-            "Laki-laki",
-            "Perempuan"});
-            this.cmbJenisKelamin.Location = new System.Drawing.Point(150, 177);
-            this.cmbJenisKelamin.Name = "cmbJenisKelamin";
-            this.cmbJenisKelamin.Size = new System.Drawing.Size(250, 25);
-            this.cmbJenisKelamin.TabIndex = 2;
-            //
-            // txtAlamat
-            //
-            this.txtAlamat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAlamat.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlamat.Location = new System.Drawing.Point(150, 142);
-            this.txtAlamat.Name = "txtAlamat";
-            this.txtAlamat.Size = new System.Drawing.Size(250, 25);
-            this.txtAlamat.TabIndex = 3;
-            this.txtAlamat.TextChanged += new System.EventHandler(this.txtAlamat_TextChanged);
-            //
-            // cmbAgama
-            //
-            this.cmbAgama.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAgama.FormattingEnabled = true;
-            this.cmbAgama.Items.AddRange(new object[] {
-            "Islam",
-            "Kristen",
-            "Katolik",
-            "Hindu",
-            "Buddha",
-            "Konghucu"});
-            this.cmbAgama.Location = new System.Drawing.Point(150, 212);
-            this.cmbAgama.Name = "cmbAgama";
-            this.cmbAgama.Size = new System.Drawing.Size(250, 25);
-            this.cmbAgama.TabIndex = 4;
-            //
-            // dtpTanggalLahir
-            //
-            this.dtpTanggalLahir.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTanggalLahir.Location = new System.Drawing.Point(150, 247);
-            this.dtpTanggalLahir.Name = "dtpTanggalLahir";
-            this.dtpTanggalLahir.Size = new System.Drawing.Size(250, 25);
-            this.dtpTanggalLahir.TabIndex = 5;
-            //
-            // btnSimpan
-            //
-            this.btnSimpan.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(46))), ((int)((byte)(125))), ((int)((byte)(50))));
-            this.btnSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSimpan.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimpan.ForeColor = System.Drawing.Color.White;
-            this.btnSimpan.Location = new System.Drawing.Point(150, 295);
-            this.btnSimpan.Name = "btnSimpan";
-            this.btnSimpan.Size = new System.Drawing.Size(120, 40);
-            this.btnSimpan.TabIndex = 6;
-            this.btnSimpan.Text = "Simpan";
-            this.btnSimpan.UseVisualStyleBackColor = false;
-            this.btnSimpan.FlatAppearance.BorderSize = 0;
-            this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
-            //
-            // btnUbah
-            //
-            this.btnUbah.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(21))), ((int)((byte)(101))), ((int)((byte)(192))));
-            this.btnUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUbah.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUbah.ForeColor = System.Drawing.Color.White;
-            this.btnUbah.Location = new System.Drawing.Point(280, 295);
-            this.btnUbah.Name = "btnUbah";
-            this.btnUbah.Size = new System.Drawing.Size(120, 40);
-            this.btnUbah.TabIndex = 16;
-            this.btnUbah.Text = "Ubah";
-            this.btnUbah.UseVisualStyleBackColor = false;
-            this.btnUbah.FlatAppearance.BorderSize = 0;
-            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
-            //
-            // btnHapus
-            //
-            this.btnHapus.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(183))), ((int)((byte)(28))), ((int)((byte)(28))));
-            this.btnHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHapus.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHapus.ForeColor = System.Drawing.Color.White;
-            this.btnHapus.Location = new System.Drawing.Point(410, 295);
-            this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(120, 40);
-            this.btnHapus.TabIndex = 17;
-            this.btnHapus.Text = "Hapus";
-            this.btnHapus.UseVisualStyleBackColor = false;
-            this.btnHapus.FlatAppearance.BorderSize = 0;
-            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
-            //
-            // label1
-            //
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.label1.Location = new System.Drawing.Point(30, 75);
+            this.lblDescription.Name = "lblDescription";
+            this.pnlContent.Name = "pnlContent";
+            this.pnlEditor.Name = "pnlEditor";
+            this.inputLayout.Name = "inputLayout";
+            this.pnlNik.Name = "pnlNik";
+            this.pnlNama.Name = "pnlNama";
+            this.pnlAlamat.Name = "pnlAlamat";
+            this.pnlJenisKelamin.Name = "pnlJenisKelamin";
+            this.pnlAgama.Name = "pnlAgama";
+            this.pnlTanggalLahir.Name = "pnlTanggalLahir";
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "NIK";
-            //
-            // label2
-            //
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.label2.Location = new System.Drawing.Point(30, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Nama Lengkap";
-            //
-            // label3
-            //
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.label3.Location = new System.Drawing.Point(30, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Alamat";
-            //
-            // label4
-            //
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.label4.Location = new System.Drawing.Point(30, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Jenis Kelamin";
-            //
-            // label5
-            //
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.label5.Location = new System.Drawing.Point(30, 215);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Agama";
-            //
-            // label6
-            //
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.label6.Location = new System.Drawing.Point(30, 250);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 17);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Tanggal Lahir";
-            //
-            // btnKeluar
-            //
-            this.btnKeluar.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(198))), ((int)((byte)(40))), ((int)((byte)(40))));
-            this.btnKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKeluar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKeluar.ForeColor = System.Drawing.Color.White;
-            this.btnKeluar.Location = new System.Drawing.Point(540, 295);
-            this.btnKeluar.Name = "btnKeluar";
-            this.btnKeluar.Size = new System.Drawing.Size(120, 40);
-            this.btnKeluar.TabIndex = 13;
-            this.btnKeluar.Text = "Keluar";
-            this.btnKeluar.UseVisualStyleBackColor = false;
-            this.btnKeluar.FlatAppearance.BorderSize = 0;
-            this.btnKeluar.Click += new System.EventHandler(this.btnKeluar_Click);
-            //
-            // btnExportExcel
-            //
-            this.btnExportExcel.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(66))), ((int)((byte)(66))), ((int)((byte)(66))));
-            this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExportExcel.Location = new System.Drawing.Point(660, 295);
+            this.txtNIK.Name = "txtNIK";
+            this.txtNama.Name = "txtNama";
+            this.txtAlamat.Name = "txtAlamat";
+            this.cmbJenisKelamin.Name = "cmbJenisKelamin";
+            this.cmbAgama.Name = "cmbAgama";
+            this.dtpTanggalLahir.Name = "dtpTanggalLahir";
+            this.btnSimpan.Name = "btnSimpan";
+            this.btnUbah.Name = "btnUbah";
+            this.btnHapus.Name = "btnHapus";
             this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(100, 40);
-            this.btnExportExcel.TabIndex = 18;
-            this.btnExportExcel.Text = "Export Excel";
-            this.btnExportExcel.UseVisualStyleBackColor = false;
-            this.btnExportExcel.FlatAppearance.BorderSize = 0;
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
-            //
-            // dgvPenduduk
-            //
-            this.dgvPenduduk.BackgroundColor = System.Drawing.Color.White;
-            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPenduduk.EnableHeadersVisualStyles = false;
-            this.dgvPenduduk.RowHeadersVisible = false;
-            this.dgvPenduduk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPenduduk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPenduduk.Location = new System.Drawing.Point(20, 350);
+            this.btnKeluar.Name = "btnKeluar";
+            this.lblDaftar.Name = "lblDaftar";
             this.dgvPenduduk.Name = "dgvPenduduk";
-            this.dgvPenduduk.Size = new System.Drawing.Size(740, 240);
-            this.dgvPenduduk.TabIndex = 15;
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Size = new System.Drawing.Size(1060, 88);
+            this.pnlHeader.TabIndex = 1;
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Controls.Add(this.lblDescription);
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 20F);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(24, 12);
+            this.lblTitle.Text = "Data Penduduk";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(225, 233, 242);
+            this.lblDescription.Location = new System.Drawing.Point(27, 56);
+            this.lblDescription.Text = "Kelola identitas dan data penduduk desa.";
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Size = new System.Drawing.Size(1060, 562);
+            this.pnlContent.TabIndex = 0;
+            this.pnlContent.Controls.Add(this.dgvPenduduk);
+            this.pnlContent.Controls.Add(this.lblDaftar);
+            this.pnlContent.Controls.Add(this.pnlEditor);
+            this.pnlEditor.Location = new System.Drawing.Point(20, 20);
+            this.pnlEditor.Size = new System.Drawing.Size(1020, 272);
+            this.pnlEditor.BackColor = System.Drawing.Color.White;
+            this.pnlEditor.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.pnlEditor.TabIndex = 0;
+            this.pnlEditor.Controls.Add(this.inputLayout);
+            this.inputLayout.Location = new System.Drawing.Point(16, 12);
+            this.inputLayout.Size = new System.Drawing.Size(988, 192);
+            this.inputLayout.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.inputLayout.ColumnCount = 2;
+            this.inputLayout.RowCount = 3;
+            this.inputLayout.TabIndex = 0;
+            this.inputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.inputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.inputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.inputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.inputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.inputLayout.Controls.Add(this.pnlNik, 0, 0);
+            this.pnlNik.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNik.Margin = new System.Windows.Forms.Padding(0, 0, 12, 0);
+            this.pnlNik.TabIndex = 0;
+            this.pnlNik.Size = new System.Drawing.Size(482, 56);
+            this.pnlNik.Controls.Add(this.label1);
+            this.pnlNik.Controls.Add(this.txtNIK);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Text = "NIK";
+            this.txtNIK.Location = new System.Drawing.Point(0, 24);
+            this.txtNIK.Size = new System.Drawing.Size(470, 25);
+            this.txtNIK.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.txtNIK.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtNIK.TabIndex = 0;
+            this.txtNIK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inputLayout.Controls.Add(this.pnlNama, 1, 0);
+            this.pnlNama.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNama.Margin = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.pnlNama.TabIndex = 1;
+            this.pnlNama.Size = new System.Drawing.Size(482, 56);
+            this.pnlNama.Controls.Add(this.label2);
+            this.pnlNama.Controls.Add(this.txtNama);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Text = "Nama Lengkap";
+            this.txtNama.Location = new System.Drawing.Point(0, 24);
+            this.txtNama.Size = new System.Drawing.Size(470, 25);
+            this.txtNama.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.txtNama.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtNama.TabIndex = 0;
+            this.txtNama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inputLayout.Controls.Add(this.pnlAlamat, 0, 1);
+            this.pnlAlamat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAlamat.Margin = new System.Windows.Forms.Padding(0, 0, 12, 0);
+            this.pnlAlamat.TabIndex = 2;
+            this.pnlAlamat.Size = new System.Drawing.Size(482, 80);
+            this.pnlAlamat.Controls.Add(this.label3);
+            this.pnlAlamat.Controls.Add(this.txtAlamat);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Text = "Alamat";
+            this.txtAlamat.Location = new System.Drawing.Point(0, 24);
+            this.txtAlamat.Size = new System.Drawing.Size(470, 48);
+            this.txtAlamat.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.txtAlamat.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtAlamat.TabIndex = 0;
+            this.txtAlamat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inputLayout.Controls.Add(this.pnlJenisKelamin, 1, 1);
+            this.pnlJenisKelamin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlJenisKelamin.Margin = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.pnlJenisKelamin.TabIndex = 3;
+            this.pnlJenisKelamin.Size = new System.Drawing.Size(482, 80);
+            this.pnlJenisKelamin.Controls.Add(this.label4);
+            this.pnlJenisKelamin.Controls.Add(this.cmbJenisKelamin);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Text = "Jenis Kelamin";
+            this.cmbJenisKelamin.Location = new System.Drawing.Point(0, 24);
+            this.cmbJenisKelamin.Size = new System.Drawing.Size(470, 25);
+            this.cmbJenisKelamin.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.cmbJenisKelamin.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.cmbJenisKelamin.TabIndex = 0;
+            this.inputLayout.Controls.Add(this.pnlAgama, 0, 2);
+            this.pnlAgama.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAgama.Margin = new System.Windows.Forms.Padding(0, 0, 12, 0);
+            this.pnlAgama.TabIndex = 4;
+            this.pnlAgama.Size = new System.Drawing.Size(482, 56);
+            this.pnlAgama.Controls.Add(this.label5);
+            this.pnlAgama.Controls.Add(this.cmbAgama);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Text = "Agama";
+            this.cmbAgama.Location = new System.Drawing.Point(0, 24);
+            this.cmbAgama.Size = new System.Drawing.Size(470, 25);
+            this.cmbAgama.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.cmbAgama.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.cmbAgama.TabIndex = 0;
+            this.inputLayout.Controls.Add(this.pnlTanggalLahir, 1, 2);
+            this.pnlTanggalLahir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTanggalLahir.Margin = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.pnlTanggalLahir.TabIndex = 5;
+            this.pnlTanggalLahir.Size = new System.Drawing.Size(482, 56);
+            this.pnlTanggalLahir.Controls.Add(this.label6);
+            this.pnlTanggalLahir.Controls.Add(this.dtpTanggalLahir);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Text = "Tanggal Lahir";
+            this.dtpTanggalLahir.Location = new System.Drawing.Point(0, 24);
+            this.dtpTanggalLahir.Size = new System.Drawing.Size(470, 25);
+            this.dtpTanggalLahir.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.dtpTanggalLahir.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.dtpTanggalLahir.TabIndex = 0;
+            this.txtAlamat.Multiline = true;
+            this.txtAlamat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAlamat.AcceptsTab = false;
+            this.txtAlamat.TextChanged += new System.EventHandler(this.txtAlamat_TextChanged);
+            this.cmbJenisKelamin.FormattingEnabled = true;
+            this.cmbJenisKelamin.Items.AddRange(new object[] { "Laki-laki", "Perempuan" });
+            this.cmbAgama.FormattingEnabled = true;
+            this.cmbAgama.Items.AddRange(new object[] { "Islam", "Kristen", "Katolik", "Hindu", "Buddha", "Konghucu" });
+            this.pnlEditor.Controls.Add(this.btnSimpan);
+            this.btnSimpan.Location = new System.Drawing.Point(16, 216);
+            this.btnSimpan.Size = new System.Drawing.Size(104, 40);
+            this.btnSimpan.Text = "Simpan";
+            this.btnSimpan.TabIndex = 1;
+            this.btnSimpan.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnSimpan.BackColor = System.Drawing.Color.FromArgb(46, 125, 50);
+            this.btnSimpan.ForeColor = System.Drawing.Color.White;
+            this.btnSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSimpan.FlatAppearance.BorderSize = 0;
+            this.btnSimpan.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnSimpan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(38, 108, 43);
+            this.btnSimpan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSimpan.UseVisualStyleBackColor = false;
+            this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
+            this.pnlEditor.Controls.Add(this.btnUbah);
+            this.btnUbah.Location = new System.Drawing.Point(132, 216);
+            this.btnUbah.Size = new System.Drawing.Size(104, 40);
+            this.btnUbah.Text = "Ubah";
+            this.btnUbah.TabIndex = 2;
+            this.btnUbah.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnUbah.BackColor = System.Drawing.Color.FromArgb(48, 105, 170);
+            this.btnUbah.ForeColor = System.Drawing.Color.White;
+            this.btnUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUbah.FlatAppearance.BorderSize = 0;
+            this.btnUbah.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnUbah.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(40, 92, 151);
+            this.btnUbah.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUbah.UseVisualStyleBackColor = false;
+            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
+            this.pnlEditor.Controls.Add(this.btnHapus);
+            this.btnHapus.Location = new System.Drawing.Point(248, 216);
+            this.btnHapus.Size = new System.Drawing.Size(104, 40);
+            this.btnHapus.Text = "Hapus";
+            this.btnHapus.TabIndex = 3;
+            this.btnHapus.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnHapus.BackColor = System.Drawing.Color.FromArgb(183, 45, 45);
+            this.btnHapus.ForeColor = System.Drawing.Color.White;
+            this.btnHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHapus.FlatAppearance.BorderSize = 0;
+            this.btnHapus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnHapus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(158, 36, 36);
+            this.btnHapus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHapus.UseVisualStyleBackColor = false;
+            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
+            this.pnlEditor.Controls.Add(this.btnExportExcel);
+            this.btnExportExcel.Location = new System.Drawing.Point(364, 216);
+            this.btnExportExcel.Size = new System.Drawing.Size(104, 40);
+            this.btnExportExcel.Text = "Export Excel";
+            this.btnExportExcel.TabIndex = 4;
+            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnExportExcel.BackColor = System.Drawing.Color.White;
+            this.btnExportExcel.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportExcel.FlatAppearance.BorderSize = 1;
+            this.btnExportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnExportExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(232, 240, 249);
+            this.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportExcel.UseVisualStyleBackColor = false;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            this.pnlEditor.Controls.Add(this.btnKeluar);
+            this.btnKeluar.Location = new System.Drawing.Point(900, 216);
+            this.btnKeluar.Size = new System.Drawing.Size(104, 40);
+            this.btnKeluar.Text = "Tutup";
+            this.btnKeluar.TabIndex = 5;
+            this.btnKeluar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnKeluar.BackColor = System.Drawing.Color.White;
+            this.btnKeluar.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.btnKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKeluar.FlatAppearance.BorderSize = 1;
+            this.btnKeluar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnKeluar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(232, 240, 249);
+            this.btnKeluar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnKeluar.UseVisualStyleBackColor = false;
+            this.btnKeluar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.btnKeluar.Click += new System.EventHandler(this.btnKeluar_Click);
+            this.lblDaftar.AutoSize = true;
+            this.lblDaftar.Location = new System.Drawing.Point(20, 308);
+            this.lblDaftar.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
+            this.lblDaftar.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.lblDaftar.Text = "Daftar Penduduk";
+            this.dgvPenduduk.Location = new System.Drawing.Point(20, 344);
+            this.dgvPenduduk.Size = new System.Drawing.Size(1020, 198);
+            this.dgvPenduduk.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.dgvPenduduk.TabIndex = 1;
+            this.dgvPenduduk.AutoGenerateColumns = false;
+            this.dgvPenduduk.AllowUserToAddRows = false;
+            this.dgvPenduduk.AllowUserToDeleteRows = false;
+            this.dgvPenduduk.AllowUserToResizeRows = false;
+            this.dgvPenduduk.ReadOnly = true;
+            this.dgvPenduduk.MultiSelect = false;
+            this.dgvPenduduk.RowHeadersVisible = false;
+            this.dgvPenduduk.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPenduduk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPenduduk.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPenduduk.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPenduduk.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvPenduduk.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPenduduk.EnableHeadersVisualStyles = false;
+            this.dgvPenduduk.ColumnHeadersHeight = 40;
+            this.dgvPenduduk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPenduduk.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.dgvPenduduk.GridColor = System.Drawing.Color.FromArgb(235, 239, 244);
+            this.dgvPenduduk.RowTemplate.Height = 34;
+            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.dgvPenduduk.ColumnHeadersDefaultCellStyle.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.dgvPenduduk.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvPenduduk.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvPenduduk.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(221, 234, 249);
+            this.dgvPenduduk.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvPenduduk.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.dgvPenduduk.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
+            this.dgvPenduduk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.colNik, this.colNama, this.colAlamat, this.colJenisKelamin, this.colAgama, this.colTanggalLahir });
+            this.colNik.Name = "NIK";
+            this.colNik.DataPropertyName = "NIK";
+            this.colNik.HeaderText = "NIK";
+            this.colNik.FillWeight = 18F;
+            this.colNik.MinimumWidth = 150;
+            this.colNik.ReadOnly = true;
+            this.colNama.Name = "Nama";
+            this.colNama.DataPropertyName = "Nama";
+            this.colNama.HeaderText = "Nama Lengkap";
+            this.colNama.FillWeight = 20F;
+            this.colNama.MinimumWidth = 130;
+            this.colNama.ReadOnly = true;
+            this.colAlamat.Name = "Alamat";
+            this.colAlamat.DataPropertyName = "Alamat";
+            this.colAlamat.HeaderText = "Alamat";
+            this.colAlamat.FillWeight = 24F;
+            this.colAlamat.MinimumWidth = 180;
+            this.colAlamat.ReadOnly = true;
+            this.colJenisKelamin.Name = "colJenisKelamin";
+            this.colJenisKelamin.DataPropertyName = "Jenis Kelamin";
+            this.colJenisKelamin.HeaderText = "Jenis Kelamin";
+            this.colJenisKelamin.FillWeight = 13F;
+            this.colJenisKelamin.MinimumWidth = 116;
+            this.colJenisKelamin.ReadOnly = true;
+            this.colAgama.Name = "Agama";
+            this.colAgama.DataPropertyName = "Agama";
+            this.colAgama.HeaderText = "Agama";
+            this.colAgama.FillWeight = 11F;
+            this.colAgama.MinimumWidth = 90;
+            this.colAgama.ReadOnly = true;
+            this.colTanggalLahir.Name = "colTanggalLahir";
+            this.colTanggalLahir.DataPropertyName = "Tanggal Lahir";
+            this.colTanggalLahir.HeaderText = "Tanggal Lahir";
+            this.colTanggalLahir.FillWeight = 14F;
+            this.colTanggalLahir.MinimumWidth = 120;
+            this.colTanggalLahir.ReadOnly = true;
+            this.colTanggalLahir.DefaultCellStyle.Format = "dd/MM/yyyy";
             this.dgvPenduduk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPenduduk_CellClick);
-            //
-            // FormPenduduk
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(245))), ((int)((byte)(245))), ((int)((byte)(245))));
-            this.ClientSize = new System.Drawing.Size(800, 620);
-            this.Controls.Add(this.dgvPenduduk);
-            this.Controls.Add(this.btnExportExcel);
-            this.Controls.Add(this.btnKeluar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnHapus);
-            this.Controls.Add(this.btnUbah);
-            this.Controls.Add(this.btnSimpan);
-            this.Controls.Add(this.dtpTanggalLahir);
-            this.Controls.Add(this.cmbAgama);
-            this.Controls.Add(this.txtAlamat);
-            this.Controls.Add(this.cmbJenisKelamin);
-            this.Controls.Add(this.txtNama);
-            this.Controls.Add(this.txtNIK);
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.ClientSize = new System.Drawing.Size(1060, 650);
+            this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MinimumSize = new System.Drawing.Size(960, 620);
             this.Name = "FormPenduduk";
-            this.Text = "FormPenduduk";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Data Penduduk";
             this.Load += new System.EventHandler(this.FormPenduduk_Load);
+            this.pnlTanggalLahir.ResumeLayout(false);
+            this.pnlTanggalLahir.PerformLayout();
+            this.pnlAgama.ResumeLayout(false);
+            this.pnlAgama.PerformLayout();
+            this.pnlJenisKelamin.ResumeLayout(false);
+            this.pnlJenisKelamin.PerformLayout();
+            this.pnlAlamat.ResumeLayout(false);
+            this.pnlAlamat.PerformLayout();
+            this.pnlNama.ResumeLayout(false);
+            this.pnlNama.PerformLayout();
+            this.pnlNik.ResumeLayout(false);
+            this.pnlNik.PerformLayout();
+            this.inputLayout.ResumeLayout(false);
+            this.inputLayout.PerformLayout();
+            this.pnlEditor.ResumeLayout(false);
+            this.pnlEditor.PerformLayout();
+            this.pnlContent.ResumeLayout(false);
+            this.pnlContent.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPenduduk)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
-
         }
 
         #endregion
 
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtNIK;
-        private System.Windows.Forms.TextBox txtNama;
-        private System.Windows.Forms.ComboBox cmbJenisKelamin;
-        private System.Windows.Forms.TextBox txtAlamat;
-        private System.Windows.Forms.ComboBox cmbAgama;
-        private System.Windows.Forms.DateTimePicker dtpTanggalLahir;
-        private System.Windows.Forms.Button btnSimpan;
-        private System.Windows.Forms.Button btnUbah;
-        private System.Windows.Forms.Button btnHapus;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Panel pnlEditor;
+        private System.Windows.Forms.TableLayoutPanel inputLayout;
+        private System.Windows.Forms.Panel pnlNik;
+        private System.Windows.Forms.Panel pnlNama;
+        private System.Windows.Forms.Panel pnlAlamat;
+        private System.Windows.Forms.Panel pnlJenisKelamin;
+        private System.Windows.Forms.Panel pnlAgama;
+        private System.Windows.Forms.Panel pnlTanggalLahir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnKeluar;
-        private System.Windows.Forms.DataGridView dgvPenduduk;
+        private System.Windows.Forms.TextBox txtNIK;
+        private System.Windows.Forms.TextBox txtNama;
+        private System.Windows.Forms.TextBox txtAlamat;
+        private System.Windows.Forms.ComboBox cmbJenisKelamin;
+        private System.Windows.Forms.ComboBox cmbAgama;
+        private System.Windows.Forms.DateTimePicker dtpTanggalLahir;
+        private System.Windows.Forms.Button btnSimpan;
+        private System.Windows.Forms.Button btnUbah;
+        private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Button btnExportExcel;
+        private System.Windows.Forms.Button btnKeluar;
+        private System.Windows.Forms.Label lblDaftar;
+        private System.Windows.Forms.DataGridView dgvPenduduk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNama;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAlamat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colJenisKelamin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAgama;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTanggalLahir;
     }
 }

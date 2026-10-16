@@ -16,6 +16,30 @@ namespace project1_ridho
             this.btnACC.Click += new EventHandler(btnACC_Click);
             this.btnTolak.Click += new EventHandler(btnTolak_Click);
             this.btnExportExcel.Click += new EventHandler(btnExportExcel_Click);
+
+            // Pembaruan tampilan saja; tidak mengubah pilihan atau status surat.
+            this.dgvApproval.SelectionChanged += PerbaruiTampilanSurat;
+            this.dgvApproval.DataBindingComplete += PerbaruiTampilanSurat;
+            this.dgvApproval.RowsAdded += PerbaruiTampilanSurat;
+            this.dgvApproval.RowsRemoved += PerbaruiTampilanSurat;
+        }
+
+        private void PerbaruiTampilanSurat(object sender, EventArgs e)
+        {
+            lblKosong.Visible = dgvApproval.Rows.Count == 0;
+            if (lblKosong.Visible)
+                lblKosong.BringToFront();
+
+            if (dgvApproval.SelectedRows.Count == 0 || dgvApproval.SelectedRows[0].IsNewRow)
+            {
+                lblSuratTerpilih.Text = "Pilih satu pengajuan pada tabel untuk melihat ringkasan surat.";
+                return;
+            }
+
+            DataGridViewRow row = dgvApproval.SelectedRows[0];
+            lblSuratTerpilih.Text = "No. Surat: " + Convert.ToString(row.Cells["no_surat"].Value) +
+                "\r\nNama: " + Convert.ToString(row.Cells["nama_warga"].Value) +
+                "\r\nJenis: " + Convert.ToString(row.Cells["jenis_surat"].Value);
         }
 
         // Fungsi untuk mengambil data surat berstatus 'Pending' dari database

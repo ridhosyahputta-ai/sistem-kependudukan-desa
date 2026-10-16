@@ -1,179 +1,364 @@
-
 namespace project1_ridho
 {
     partial class FormApproval
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.pnlList = new System.Windows.Forms.Panel();
+            this.lblDaftar = new System.Windows.Forms.Label();
+            this.pnlTable = new System.Windows.Forms.Panel();
             this.dgvApproval = new System.Windows.Forms.DataGridView();
+            this.lblKosong = new System.Windows.Forms.Label();
+            this.pnlDecision = new System.Windows.Forms.Panel();
+            this.decisionLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlSummary = new System.Windows.Forms.Panel();
+            this.lblRingkasan = new System.Windows.Forms.Label();
+            this.lblSuratTerpilih = new System.Windows.Forms.Label();
+            this.pnlCatatan = new System.Windows.Forms.Panel();
             this.lblCatatan = new System.Windows.Forms.Label();
             this.txtCatatan = new System.Windows.Forms.TextBox();
+            this.lblCatatanHint = new System.Windows.Forms.Label();
             this.btnACC = new System.Windows.Forms.Button();
             this.btnTolak = new System.Windows.Forms.Button();
             this.btnExportExcel = new System.Windows.Forms.Button();
+            this.colIdSurat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNoSurat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNamaWarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJenisSurat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTanggalPengajuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
+            this.pnlContent.SuspendLayout();
+            this.pnlList.SuspendLayout();
+            this.pnlTable.SuspendLayout();
+            this.pnlDecision.SuspendLayout();
+            this.decisionLayout.SuspendLayout();
+            this.pnlSummary.SuspendLayout();
+            this.pnlCatatan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApproval)).BeginInit();
             this.SuspendLayout();
-            //
-            // pnlHeader
-            //
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.pnlHeader.Controls.Add(this.lblTitle);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(800, 55);
-            this.pnlHeader.TabIndex = 4;
-            //
-            // lblTitle
-            //
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(217, 24);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "APPROVAL PENGAJUAN SURAT";
-            //
-            // dgvApproval
-            //
-            this.dgvApproval.BackgroundColor = System.Drawing.Color.White;
-            this.dgvApproval.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.dgvApproval.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvApproval.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvApproval.EnableHeadersVisualStyles = false;
+            this.lblDescription.Name = "lblDescription";
+            this.pnlContent.Name = "pnlContent";
+            this.pnlList.Name = "pnlList";
+            this.lblDaftar.Name = "lblDaftar";
+            this.pnlTable.Name = "pnlTable";
+            this.dgvApproval.Name = "dgvApproval";
+            this.lblKosong.Name = "lblKosong";
+            this.pnlDecision.Name = "pnlDecision";
+            this.decisionLayout.Name = "decisionLayout";
+            this.pnlSummary.Name = "pnlSummary";
+            this.lblRingkasan.Name = "lblRingkasan";
+            this.lblSuratTerpilih.Name = "lblSuratTerpilih";
+            this.pnlCatatan.Name = "pnlCatatan";
+            this.lblCatatan.Name = "lblCatatan";
+            this.txtCatatan.Name = "txtCatatan";
+            this.lblCatatanHint.Name = "lblCatatanHint";
+            this.btnACC.Name = "btnACC";
+            this.btnTolak.Name = "btnTolak";
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Size = new System.Drawing.Size(1060, 88);
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.pnlHeader.TabIndex = 1;
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Controls.Add(this.lblDescription);
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(24, 12);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 20F);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Text = "Persetujuan Surat";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(27, 56);
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(225, 233, 242);
+            this.lblDescription.Text = "Tinjau pengajuan yang menunggu keputusan dan berikan catatan.";
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Size = new System.Drawing.Size(1060, 562);
+            this.pnlContent.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlContent.TabIndex = 0;
+            this.pnlContent.Controls.Add(this.pnlList);
+            this.pnlContent.Controls.Add(this.pnlDecision);
+            this.pnlList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlList.Padding = new System.Windows.Forms.Padding(0, 0, 0, 16);
+            this.pnlList.Size = new System.Drawing.Size(1020, 314);
+            this.pnlList.TabIndex = 0;
+            this.pnlList.Controls.Add(this.pnlTable);
+            this.pnlList.Controls.Add(this.lblDaftar);
+            this.lblDaftar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDaftar.Height = 32;
+            this.lblDaftar.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
+            this.lblDaftar.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.lblDaftar.Text = "Pengajuan Menunggu Persetujuan";
+            this.pnlTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTable.Size = new System.Drawing.Size(1020, 266);
+            this.pnlTable.Controls.Add(this.dgvApproval);
+            this.pnlTable.Controls.Add(this.lblKosong);
+            this.lblKosong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblKosong.BackColor = System.Drawing.Color.White;
+            this.lblKosong.ForeColor = System.Drawing.Color.FromArgb(92, 105, 121);
+            this.lblKosong.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblKosong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblKosong.Text = "Tidak ada pengajuan surat berstatus Pending.\r\nPengajuan yang menunggu keputusan akan tampil di sini.";
+            this.lblKosong.BringToFront();
+            this.dgvApproval.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvApproval.TabIndex = 0;
+            this.dgvApproval.AutoGenerateColumns = false;
+            this.dgvApproval.AllowUserToAddRows = false;
+            this.dgvApproval.AllowUserToDeleteRows = false;
+            this.dgvApproval.AllowUserToResizeRows = false;
+            this.dgvApproval.ReadOnly = true;
+            this.dgvApproval.MultiSelect = false;
             this.dgvApproval.RowHeadersVisible = false;
             this.dgvApproval.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvApproval.MultiSelect = false;
-            this.dgvApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvApproval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvApproval.Location = new System.Drawing.Point(20, 65);
-            this.dgvApproval.Name = "dgvApproval";
-            this.dgvApproval.Size = new System.Drawing.Size(760, 220);
-            this.dgvApproval.TabIndex = 0;
-            //
-            // lblCatatan
-            //
+            this.dgvApproval.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvApproval.BackgroundColor = System.Drawing.Color.White;
+            this.dgvApproval.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvApproval.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvApproval.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvApproval.EnableHeadersVisualStyles = false;
+            this.dgvApproval.ColumnHeadersHeight = 44;
+            this.dgvApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvApproval.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.dgvApproval.GridColor = System.Drawing.Color.FromArgb(235, 239, 244);
+            this.dgvApproval.RowTemplate.Height = 34;
+            this.dgvApproval.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvApproval.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvApproval.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvApproval.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvApproval.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.dgvApproval.ColumnHeadersDefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvApproval.ColumnHeadersDefaultCellStyle.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.dgvApproval.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvApproval.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvApproval.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(221, 234, 249);
+            this.dgvApproval.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.dgvApproval.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.dgvApproval.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
+            this.dgvApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.colIdSurat, this.colNoSurat, this.colNik, this.colNamaWarga, this.colJenisSurat, this.colTanggalPengajuan, this.colStatus });
+            this.colIdSurat.Name = "id_surat";
+            this.colIdSurat.DataPropertyName = "id_surat";
+            this.colIdSurat.HeaderText = "ID";
+            this.colIdSurat.FillWeight = 6F;
+            this.colIdSurat.MinimumWidth = 56;
+            this.colIdSurat.ReadOnly = true;
+            this.colNoSurat.Name = "no_surat";
+            this.colNoSurat.DataPropertyName = "no_surat";
+            this.colNoSurat.HeaderText = "No. Surat";
+            this.colNoSurat.FillWeight = 14F;
+            this.colNoSurat.MinimumWidth = 120;
+            this.colNoSurat.ReadOnly = true;
+            this.colNik.Name = "nik";
+            this.colNik.DataPropertyName = "nik";
+            this.colNik.HeaderText = "NIK";
+            this.colNik.FillWeight = 17F;
+            this.colNik.MinimumWidth = 145;
+            this.colNik.ReadOnly = true;
+            this.colNamaWarga.Name = "nama_warga";
+            this.colNamaWarga.DataPropertyName = "nama_warga";
+            this.colNamaWarga.HeaderText = "Nama Warga";
+            this.colNamaWarga.FillWeight = 18F;
+            this.colNamaWarga.MinimumWidth = 130;
+            this.colNamaWarga.ReadOnly = true;
+            this.colJenisSurat.Name = "jenis_surat";
+            this.colJenisSurat.DataPropertyName = "jenis_surat";
+            this.colJenisSurat.HeaderText = "Jenis Surat";
+            this.colJenisSurat.FillWeight = 20F;
+            this.colJenisSurat.MinimumWidth = 170;
+            this.colJenisSurat.ReadOnly = true;
+            this.colTanggalPengajuan.Name = "tanggal_pengajuan";
+            this.colTanggalPengajuan.DataPropertyName = "tanggal_pengajuan";
+            this.colTanggalPengajuan.HeaderText = "Tanggal Pengajuan";
+            this.colTanggalPengajuan.FillWeight = 15F;
+            this.colTanggalPengajuan.MinimumWidth = 135;
+            this.colTanggalPengajuan.ReadOnly = true;
+            this.colStatus.Name = "status";
+            this.colStatus.DataPropertyName = "status";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.FillWeight = 10F;
+            this.colStatus.MinimumWidth = 90;
+            this.colStatus.ReadOnly = true;
+            this.colTanggalPengajuan.DefaultCellStyle.Format = "dd/MM/yyyy";
+            this.pnlDecision.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDecision.Size = new System.Drawing.Size(1020, 208);
+            this.pnlDecision.BackColor = System.Drawing.Color.White;
+            this.pnlDecision.TabIndex = 1;
+            this.pnlDecision.Controls.Add(this.decisionLayout);
+            this.pnlDecision.Controls.Add(this.btnACC);
+            this.pnlDecision.Controls.Add(this.btnTolak);
+            this.pnlDecision.Controls.Add(this.btnExportExcel);
+            this.decisionLayout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.decisionLayout.Size = new System.Drawing.Size(1020, 140);
+            this.decisionLayout.Padding = new System.Windows.Forms.Padding(16);
+            this.decisionLayout.ColumnCount = 2;
+            this.decisionLayout.RowCount = 1;
+            this.decisionLayout.TabIndex = 0;
+            this.decisionLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.decisionLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.decisionLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.decisionLayout.Controls.Add(this.pnlSummary, 0, 0);
+            this.pnlSummary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSummary.Margin = new System.Windows.Forms.Padding(0, 0, 12, 0);
+            this.pnlSummary.Size = new System.Drawing.Size(482, 108);
+            this.pnlSummary.TabIndex = 0;
+            this.decisionLayout.Controls.Add(this.pnlCatatan, 1, 0);
+            this.pnlCatatan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCatatan.Margin = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.pnlCatatan.Size = new System.Drawing.Size(482, 108);
+            this.pnlCatatan.TabIndex = 1;
+            this.pnlSummary.Controls.Add(this.lblRingkasan);
+            this.pnlSummary.Controls.Add(this.lblSuratTerpilih);
+            this.lblRingkasan.AutoSize = true;
+            this.lblRingkasan.Location = new System.Drawing.Point(0, 0);
+            this.lblRingkasan.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.lblRingkasan.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
+            this.lblRingkasan.Text = "Surat Terpilih";
+            this.lblSuratTerpilih.Location = new System.Drawing.Point(0, 28);
+            this.lblSuratTerpilih.Size = new System.Drawing.Size(470, 76);
+            this.lblSuratTerpilih.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.lblSuratTerpilih.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblSuratTerpilih.ForeColor = System.Drawing.Color.FromArgb(92, 105, 121);
+            this.lblSuratTerpilih.AutoEllipsis = true;
+            this.lblSuratTerpilih.Text = "Pilih satu pengajuan pada tabel untuk melihat ringkasan surat.";
+            this.pnlCatatan.Controls.Add(this.lblCatatan);
+            this.pnlCatatan.Controls.Add(this.txtCatatan);
+            this.pnlCatatan.Controls.Add(this.lblCatatanHint);
             this.lblCatatan.AutoSize = true;
-            this.lblCatatan.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatatan.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)(30))), ((int)((byte)(58))), ((int)((byte)(95))));
-            this.lblCatatan.Location = new System.Drawing.Point(20, 300);
-            this.lblCatatan.Name = "lblCatatan";
-            this.lblCatatan.Size = new System.Drawing.Size(52, 17);
-            this.lblCatatan.TabIndex = 5;
+            this.lblCatatan.Location = new System.Drawing.Point(0, 0);
+            this.lblCatatan.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.lblCatatan.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
             this.lblCatatan.Text = "Catatan";
-            //
-            // txtCatatan
-            //
+            this.txtCatatan.Location = new System.Drawing.Point(0, 24);
+            this.txtCatatan.Size = new System.Drawing.Size(470, 56);
+            this.txtCatatan.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.txtCatatan.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtCatatan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCatatan.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCatatan.Location = new System.Drawing.Point(20, 322);
-            this.txtCatatan.Name = "txtCatatan";
-            this.txtCatatan.Size = new System.Drawing.Size(400, 25);
-            this.txtCatatan.TabIndex = 1;
-            //
-            // btnACC
-            //
-            this.btnACC.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(46))), ((int)((byte)(125))), ((int)((byte)(50))));
-            this.btnACC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnACC.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnACC.ForeColor = System.Drawing.Color.White;
-            this.btnACC.Location = new System.Drawing.Point(20, 365);
-            this.btnACC.Name = "btnACC";
+            this.txtCatatan.Multiline = true;
+            this.txtCatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtCatatan.AcceptsTab = false;
+            this.txtCatatan.TabIndex = 0;
+            this.lblCatatanHint.AutoSize = true;
+            this.lblCatatanHint.Location = new System.Drawing.Point(0, 86);
+            this.lblCatatanHint.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblCatatanHint.ForeColor = System.Drawing.Color.FromArgb(92, 105, 121);
+            this.lblCatatanHint.Text = "Catatan wajib diisi untuk penolakan.";
+            this.btnACC.Location = new System.Drawing.Point(16, 156);
             this.btnACC.Size = new System.Drawing.Size(120, 40);
-            this.btnACC.TabIndex = 2;
+            this.btnACC.TabIndex = 1;
             this.btnACC.Text = "Setujui";
-            this.btnACC.UseVisualStyleBackColor = false;
+            this.btnACC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnACC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnACC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnACC.FlatAppearance.BorderSize = 0;
-            //
-            // btnTolak
-            //
-            this.btnTolak.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(198))), ((int)((byte)(40))), ((int)((byte)(40))));
-            this.btnTolak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTolak.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTolak.ForeColor = System.Drawing.Color.White;
-            this.btnTolak.Location = new System.Drawing.Point(150, 365);
-            this.btnTolak.Name = "btnTolak";
+            this.btnACC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnACC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(38, 108, 43);
+            this.btnACC.BackColor = System.Drawing.Color.FromArgb(46, 125, 50);
+            this.btnACC.ForeColor = System.Drawing.Color.White;
+            this.btnACC.UseVisualStyleBackColor = false;
+            this.btnTolak.Location = new System.Drawing.Point(148, 156);
             this.btnTolak.Size = new System.Drawing.Size(120, 40);
-            this.btnTolak.TabIndex = 3;
+            this.btnTolak.TabIndex = 2;
             this.btnTolak.Text = "Tolak";
-            this.btnTolak.UseVisualStyleBackColor = false;
+            this.btnTolak.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnTolak.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTolak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTolak.FlatAppearance.BorderSize = 0;
-            //
-            // btnExportExcel
-            //
-            this.btnExportExcel.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(66))), ((int)((byte)(66))), ((int)((byte)(66))));
-            this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExportExcel.Location = new System.Drawing.Point(630, 365);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(150, 40);
-            this.btnExportExcel.TabIndex = 6;
+            this.btnTolak.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnTolak.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(158, 36, 36);
+            this.btnTolak.BackColor = System.Drawing.Color.FromArgb(183, 45, 45);
+            this.btnTolak.ForeColor = System.Drawing.Color.White;
+            this.btnTolak.UseVisualStyleBackColor = false;
+            this.btnExportExcel.Location = new System.Drawing.Point(884, 156);
+            this.btnExportExcel.Size = new System.Drawing.Size(120, 40);
+            this.btnExportExcel.TabIndex = 3;
             this.btnExportExcel.Text = "Export Excel";
+            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportExcel.FlatAppearance.BorderSize = 1;
+            this.btnExportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 215, 227);
+            this.btnExportExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(232, 240, 249);
+            this.btnExportExcel.BackColor = System.Drawing.Color.White;
+            this.btnExportExcel.ForeColor = System.Drawing.Color.FromArgb(25, 55, 90);
             this.btnExportExcel.UseVisualStyleBackColor = false;
-            this.btnExportExcel.FlatAppearance.BorderSize = 0;
-            //
-            // FormApproval
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.btnExportExcel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)((byte)(245))), ((int)((byte)(245))), ((int)((byte)(245))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnExportExcel);
-            this.Controls.Add(this.btnTolak);
-            this.Controls.Add(this.btnACC);
-            this.Controls.Add(this.txtCatatan);
-            this.Controls.Add(this.lblCatatan);
-            this.Controls.Add(this.dgvApproval);
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.ClientSize = new System.Drawing.Size(1060, 650);
+            this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MinimumSize = new System.Drawing.Size(960, 620);
             this.Name = "FormApproval";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormApproval";
+            this.Text = "Persetujuan Surat";
+            this.pnlCatatan.ResumeLayout(false);
+            this.pnlCatatan.PerformLayout();
+            this.pnlSummary.ResumeLayout(false);
+            this.pnlSummary.PerformLayout();
+            this.decisionLayout.ResumeLayout(false);
+            this.decisionLayout.PerformLayout();
+            this.pnlDecision.ResumeLayout(false);
+            this.pnlDecision.PerformLayout();
+            this.pnlTable.ResumeLayout(false);
+            this.pnlTable.PerformLayout();
+            this.pnlList.ResumeLayout(false);
+            this.pnlList.PerformLayout();
+            this.pnlContent.ResumeLayout(false);
+            this.pnlContent.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApproval)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
-
         }
 
         #endregion
 
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Panel pnlList;
+        private System.Windows.Forms.Label lblDaftar;
+        private System.Windows.Forms.Panel pnlTable;
         private System.Windows.Forms.DataGridView dgvApproval;
+        private System.Windows.Forms.Label lblKosong;
+        private System.Windows.Forms.Panel pnlDecision;
+        private System.Windows.Forms.TableLayoutPanel decisionLayout;
+        private System.Windows.Forms.Panel pnlSummary;
+        private System.Windows.Forms.Label lblRingkasan;
+        private System.Windows.Forms.Label lblSuratTerpilih;
+        private System.Windows.Forms.Panel pnlCatatan;
         private System.Windows.Forms.Label lblCatatan;
         private System.Windows.Forms.TextBox txtCatatan;
+        private System.Windows.Forms.Label lblCatatanHint;
         private System.Windows.Forms.Button btnACC;
         private System.Windows.Forms.Button btnTolak;
         private System.Windows.Forms.Button btnExportExcel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdSurat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNoSurat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNamaWarga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colJenisSurat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTanggalPengajuan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
     }
 }

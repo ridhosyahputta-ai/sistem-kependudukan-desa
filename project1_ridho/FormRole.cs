@@ -107,7 +107,7 @@ namespace project1_ridho
 
             DataGridViewRow row = dgvRole.Rows[e.RowIndex];
             if (row.IsNewRow || !dgvRole.Columns.Contains("ID") ||
-                !dgvRole.Columns.Contains("Nama Role") ||
+                !dgvRole.Columns.Contains(colNamaRole.Name) ||
                 string.IsNullOrWhiteSpace(Convert.ToString(row.Cells["ID"].Value)))
             {
                 ClearForm();
@@ -115,7 +115,7 @@ namespace project1_ridho
             }
 
             idSelected = Convert.ToString(row.Cells["ID"].Value);
-            txtNamaRole.Text = Convert.ToString(row.Cells["Nama Role"].Value);
+            txtNamaRole.Text = Convert.ToString(row.Cells[colNamaRole.Name].Value);
         }
 
         // 6. TOMBOL UBAH (UPDATE)

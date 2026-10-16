@@ -103,8 +103,8 @@ namespace project1_ridho
             DataGridViewRow selectedRow = dgvPenduduk.Rows[e.RowIndex];
             if (selectedRow.IsNewRow || !dgvPenduduk.Columns.Contains("NIK") ||
                 !dgvPenduduk.Columns.Contains("Nama") || !dgvPenduduk.Columns.Contains("Alamat") ||
-                !dgvPenduduk.Columns.Contains("Jenis Kelamin") || !dgvPenduduk.Columns.Contains("Agama") ||
-                !dgvPenduduk.Columns.Contains("Tanggal Lahir") ||
+                !dgvPenduduk.Columns.Contains(colJenisKelamin.Name) || !dgvPenduduk.Columns.Contains("Agama") ||
+                !dgvPenduduk.Columns.Contains(colTanggalLahir.Name) ||
                 string.IsNullOrWhiteSpace(Convert.ToString(selectedRow.Cells["NIK"].Value)))
             {
                 ClearFormPenduduk();
@@ -121,11 +121,11 @@ namespace project1_ridho
                 txtAlamat.Text = Convert.ToString(row.Cells["Alamat"].Value);
                 cmbJenisKelamin.SelectedIndex = -1;
                 cmbAgama.SelectedIndex = -1;
-                cmbJenisKelamin.SelectedItem = Convert.ToString(row.Cells["Jenis Kelamin"].Value);
+                cmbJenisKelamin.SelectedItem = Convert.ToString(row.Cells[colJenisKelamin.Name].Value);
                 cmbAgama.SelectedItem = Convert.ToString(row.Cells["Agama"].Value);
                 dtpTanggalLahir.Value = DateTime.Today;
 
-                object tglValue = row.Cells["Tanggal Lahir"].Value;
+                object tglValue = row.Cells[colTanggalLahir.Name].Value;
                 DateTime tgl;
                 if (tglValue != null && tglValue != DBNull.Value && DateTime.TryParse(tglValue.ToString(), out tgl))
                 {

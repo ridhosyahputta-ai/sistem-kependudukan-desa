@@ -47,6 +47,7 @@ namespace project1_ridho
             }
             else if (role.Contains("lurah"))
             {
+                btnDataPenduduk.Text = "Persetujuan Surat";
                 btnDataRole.Enabled = false;
                 btnDataUser.Enabled = false;
                 btnDataPenduduk.Enabled = true;

@@ -20,7 +20,6 @@ namespace project1_ridho
             this.btnUbah.Click += new EventHandler(btnUbah_Click);
             this.btnHapus.Click += new EventHandler(btnHapus_Click);
             this.btnKeluar.Click += new EventHandler(btnKeluar_Click);
-            this.btnLaporan.Click += new EventHandler(btnLaporan_Click);
             this.dgvTransaksiSurat.CellClick += new DataGridViewCellEventHandler(dgvTransaksiSurat_CellClick);
         }
 
@@ -172,10 +171,10 @@ namespace project1_ridho
                 return;
 
             DataGridViewRow selectedRow = dgvTransaksiSurat.Rows[e.RowIndex];
-            if (selectedRow.IsNewRow || !dgvTransaksiSurat.Columns.Contains("No. Surat") ||
-                !dgvTransaksiSurat.Columns.Contains("NIK") || !dgvTransaksiSurat.Columns.Contains("Nama Warga") ||
-                !dgvTransaksiSurat.Columns.Contains("Jenis Surat") || !dgvTransaksiSurat.Columns.Contains("Tanggal Pengajuan") ||
-                string.IsNullOrWhiteSpace(Convert.ToString(selectedRow.Cells["No. Surat"].Value)))
+            if (selectedRow.IsNewRow || !dgvTransaksiSurat.Columns.Contains(colNoSurat.Name) ||
+                !dgvTransaksiSurat.Columns.Contains(colNik.Name) || !dgvTransaksiSurat.Columns.Contains(colNamaWarga.Name) ||
+                !dgvTransaksiSurat.Columns.Contains(colJenisSurat.Name) || !dgvTransaksiSurat.Columns.Contains(colTanggalPengajuan.Name) ||
+                string.IsNullOrWhiteSpace(Convert.ToString(selectedRow.Cells[colNoSurat.Name].Value)))
             {
                 ClearFormTransaksi();
                 return;
@@ -184,16 +183,16 @@ namespace project1_ridho
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvTransaksiSurat.Rows[e.RowIndex];
-                noSuratSelected = row.Cells["No. Surat"].Value.ToString();
+                noSuratSelected = row.Cells[colNoSurat.Name].Value.ToString();
 
                 txtNoSurat.Text = noSuratSelected;
-                txtNIK.Text = Convert.ToString(row.Cells["NIK"].Value);
-                txtNamaWarga.Text = Convert.ToString(row.Cells["Nama Warga"].Value);
+                txtNIK.Text = Convert.ToString(row.Cells[colNik.Name].Value);
+                txtNamaWarga.Text = Convert.ToString(row.Cells[colNamaWarga.Name].Value);
                 cmbJenisSurat.SelectedIndex = -1;
-                cmbJenisSurat.SelectedItem = Convert.ToString(row.Cells["Jenis Surat"].Value);
+                cmbJenisSurat.SelectedItem = Convert.ToString(row.Cells[colJenisSurat.Name].Value);
                 dtpTanggalPengajuan.Value = DateTime.Now;
 
-                object tglValue = row.Cells["Tanggal Pengajuan"].Value;
+                object tglValue = row.Cells[colTanggalPengajuan.Name].Value;
                 DateTime tgl;
                 if (tglValue != null && tglValue != DBNull.Value && DateTime.TryParse(tglValue.ToString(), out tgl))
                 {
@@ -306,10 +305,44 @@ namespace project1_ridho
 
         private void btnLaporan_Click(object sender, EventArgs e)
         {
-            using (FormLaporanSurat formLaporan = new FormLaporanSurat())
+            if (!btnLaporan.Enabled)
+                return;
+
+            string tahap = "mengambil data laporan";
+            string pdfPath = null;
+            Cursor cursorSebelumnya = Cursor;
+            btnLaporan.Enabled = false;
+            Cursor = Cursors.WaitCursor;
+            try
             {
-                formLaporan.ShowDialog(this);
+                using (DataSet data = FormLaporanSurat.AmbilDataLaporan())
+                {
+                    tahap = "mengekspor laporan ke PDF";
+                    pdfPath = LaporanSuratPdf.EksporPdf(data);
+                }
+
+                tahap = "membuka PDF di browser default Windows";
+                LaporanSuratPdf.BukaPdf(pdfPath);
+            }
+            catch (Exception ex)
+            {
+                string pesan = "Gagal " + tahap + ".\n\n" + ex.Message;
+                if (pdfPath != null)
+                    pesan += "\n\nPDF berhasil disimpan di:\n" + pdfPath;
+                MessageBox.Show(this, pesan, "Laporan Pengajuan Surat",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = cursorSebelumnya;
+                btnLaporan.Enabled = true;
             }
         }
+
+        private void FormTransaksiSurat_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
